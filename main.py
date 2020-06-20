@@ -33,7 +33,7 @@ class Process_text(Resource):
         keywords = [Summarizer.get_main_words(text["text"]) for text in request.json['params']]
 
         result = [{"result_text" : short_texts[i], "keywords" : keywords[i]} for i in range(len(keywords))]
-
+        result.headers['Access-Control-Allow-Origin'] = '*'
         # Какой-то джисон ответ
         js = json.dumps(result)
         
