@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/vk_mini_app.iml" filepath="$PROJECT_DIR$/.idea/vk_mini_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/burn_it.iml" filepath="$PROJECT_DIR$/.idea/burn_it.iml" />
     </modules>
   </component>
 </project>
