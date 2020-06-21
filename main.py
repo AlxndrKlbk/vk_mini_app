@@ -1,4 +1,5 @@
 from flask import Flask, Response, request
+from flask_cors import CORS
 from flask_restplus import Api, Resource
 from summarizer import Summarizer
 import json
@@ -6,6 +7,7 @@ import json
 from token_namespace import api as ns_token
 # Создаем объект сервер
 app = Flask(__name__)
+CORS(app)
 
 api = Api(
     app,
@@ -33,7 +35,6 @@ class Process_text(Resource):
         keywords = [Summarizer.get_main_words(text["text"]) for text in request.json['params']]
 
         result = [{"result_text" : short_texts[i], "keywords" : keywords[i]} for i in range(len(keywords))]
-        result.headers['Access-Control-Allow-Origin'] = '*'
         # Какой-то джисон ответ
         js = json.dumps(result)
         
