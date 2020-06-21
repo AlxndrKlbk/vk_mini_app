@@ -2,5 +2,4 @@ flask
 gensim
 pymongo
 flask-restplus
-annotations
 gunicorn

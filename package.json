@@ -1,0 +1,27 @@
+{
+  "name": "vk_mini_app",
+  "version": "1.0.0",
+  "description": "Серверное приложение, которого не должно было существовать, но что то пошло не так.\r В качестве сервера выступает Flask.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlxndrKlbk/vk_mini_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlxndrKlbk/vk_mini_app/issues"
+  },
+  "homepage": "https://github.com/AlxndrKlbk/vk_mini_app#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "yargs": "^15.3.1"
+  }
+}
