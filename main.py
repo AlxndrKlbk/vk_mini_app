@@ -1,6 +1,6 @@
-from flask import Flask, Response, request
+from flask import Flask, request
 from flask_cors import CORS
-from flask_restplus import Api, Resource
+from flask_restx import Api, Resource, fields
 from summarizer import Summarizer
 import json
 
@@ -19,11 +19,21 @@ api.add_namespace(ns_token)
 # надо
 app.config['DEBUG'] = True
 
-@api.route('/process_text')
-class Process_text(Resource):
-    def get(self):
-        return {}
+summarize_api_model = api.model('Summarize', {
+    'text': fields.String(required=True, description='Text for summarization'),
+    'ratio': fields.Float(required=False, description='Summarization coefficent'),
+    'word_count': fields.Integer(required=False, description='Summarize to n words')
+})
 
+summarize_api_models = api.model("SummarizeList", {
+    "params": fields.List(fields.Nested(summarize_api_model))
+})
+
+ns = api.namespace('process_text', description='Text processing operations')
+
+@ns.route('/')
+class ProcessText(Resource):
+    @ns.expect(summarize_api_models)
     def post(self):
 
         if request.headers['Content-Type'] != 'application/json':

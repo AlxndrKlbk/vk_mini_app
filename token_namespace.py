@@ -1,4 +1,4 @@
-﻿from flask_restplus import Namespace, Resource
+﻿from flask_restx import Namespace, Resource
 from dbcontext import DbContext
 from datetime import datetime
 from hashlib import md5

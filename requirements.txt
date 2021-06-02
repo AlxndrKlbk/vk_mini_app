@@ -1,5 +1,7 @@
-flask
-gensim
+flask<2.0
+gensim==3.8.3
 pymongo
-flask-restplus
+flask-restx
 gunicorn
+flask_cors
+pymorphy2

@@ -1,10 +1,6 @@
 ﻿import re
-from collections import Counter
-import numpy as np
-from queue import Queue
-import copy
-from gensim import summarization
-import operator 
+from gensim.summarization import summarize
+from gensim.summarization import keywords
 import pymorphy2
 
 class Summarizer:
@@ -29,7 +25,7 @@ class Summarizer:
         text = Summarizer.delete_bad_patterns.sub('', text.encode().decode('utf-8'))
 
         try:
-            output_text = summarization.summarize(text, **args_dict)
+            output_text = summarize(text, **args_dict)
         except ValueError as ve:  
             print(str(ve))
             output_text = ''
@@ -46,5 +42,5 @@ class Summarizer:
         non_standart = ['LATN', 'NUMB']
         morph = pymorphy2.MorphAnalyzer()
         #new_text = self.exclude_stop_words(text)
-        to_return = [morph.parse(word)[0] for word in summarization.keywords(text, split=True, words=words_num)]
+        to_return = [morph.parse(word)[0] for word in keywords(text, split=True, words=words_num)]
         return [word.word for word in to_return if (str(word.tag) in non_standart or word.tag.POS in available_pos) ]
