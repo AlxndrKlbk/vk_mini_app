@@ -8,7 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-env/
+.env/
 build/
 develop-eggs/
 dist/
@@ -81,7 +81,6 @@ celerybeat-schedule
 # virtualenv
 .venv/
 venv/
-ENV/
 
 # Spyder project settings
 .spyderproject
@@ -91,5 +90,19 @@ ENV/
 
 *.bin
 log/
-*.log
 /config.py
+
+# Frontend
+new_front/node_modules/*
+node_modules
+node_modules/*
+*.lock
+.idea
+*.iml
+.vscode
+.DS_STORE
+*.log*
+yarn.lock
+.yml
+image_search
+.md

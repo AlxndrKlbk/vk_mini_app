@@ -42,6 +42,7 @@ RUN set -x \
     ## установка других требований
     && pip install -r requirements.txt
 
+RUN chmod 777 ./start.sh
 EXPOSE 5000
 
 CMD ["./start.sh"]
